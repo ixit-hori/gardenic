@@ -1,0 +1,32 @@
+{
+  [
+   {
+     "flower_id": "001",
+     "soil_id": "001", 
+     "nickname": "テスト1", 
+     "status": "OK", 
+     "breeding_date": "3", 
+     "flower_level": "1", 
+     "water_level": "1", 
+     "soil_level": "1", 
+     "flower_current_img_path": "/assets/myGarden_img01", 
+     "flower_real_img_path": "/asset/myGarden_img01", 
+     "create_date": "2021-07-26" 
+   }
+  ],
+    [
+   {
+     "flower_id": "002",
+     "soil_id": "002", 
+     "nickname": "テスト2", 
+     "status": "OK", 
+     "breeding_date": "5", 
+     "flower_level": "2", 
+     "water_level": "1", 
+     "soil_level": "1", 
+     "flower_current_img_path": "/assets/myGarden_img02", 
+     "flower_real_img_path": "/asset/myGarden_img02", 
+     "create_date": "2021-07-26" 
+   }
+  ]
+}
