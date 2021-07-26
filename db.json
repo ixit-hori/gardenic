@@ -12,9 +12,7 @@
      "flower_current_img_path": "/assets/myGarden_img01", 
      "flower_real_img_path": "/asset/myGarden_img01", 
      "create_date": "2021-07-26" 
-   }
-  ],
-    [
+   },
    {
      "flower_id": "002",
      "soil_id": "002", 
