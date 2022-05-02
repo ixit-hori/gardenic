@@ -27,7 +27,7 @@ yourname_filename
 
 
 #### sass, sass-loaderはバージョン指定すること
-`yarn add -D sass@^1.26.5 sass-loader@^8.0.2 sass-resources-loader fibers`
+`yarn add -D sass@^1.26.5 sass-loader@^8.0.2 sass-resources-loader`
 
 
 ## コマンド
