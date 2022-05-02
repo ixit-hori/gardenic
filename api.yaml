@@ -1,0 +1,206 @@
+swagger: '2.0'
+info:
+  description: 【プロジェクト名】で使用するAPIのI/F定義です。
+  version: 1.0.0
+  title: 【プロジェクト名】I/F仕様書
+  termsOfService: 'https://{ドメイン}/'
+  contact:
+    email: xxxx@ixit.co.jp
+host: xxx.xxx.co.jp
+basePath: /v1
+tags:
+  - name: users
+    description: ユーザー関連
+    externalDocs:
+      description: ''
+      url: 'https://www.xxxx.co.jp'
+schemes:
+  - https
+paths:
+  /users:
+    post:
+      tags:
+        - users
+      summary: ユーザー情報登録
+      description: ''
+      operationId: ''
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/Users'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/UsersResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ApiError'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiError'
+  '/users/{user_id}':
+    put:
+      tags:
+        - users
+      summary: ユーザー情報更新
+      description: ''
+      operationId: ''
+      produces:
+        - application/json
+      parameters:
+        - name: user_id
+          in: path
+          description: ユーザーID
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/Users'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/UsersResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ApiError'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ApiError'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiError'
+    get:
+      tags:
+        - users
+      summary: ユーザー情報取得
+      description: ''
+      operationId: ''
+      produces:
+        - application/json
+      parameters:
+        - name: user_id
+          in: path
+          description: ユーザーID
+          required: true
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/UsersResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ApiError'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ApiError'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiError'
+    delete:
+      tags:
+        - users
+      summary: ユーザー情報削除
+      description: ''
+      operationId: ''
+      produces:
+        - application/json
+      parameters:
+        - name: user_id
+          in: path
+          description: ユーザーID
+          required: true
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ApiError'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ApiError'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ApiError'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ApiError'
+definitions:
+  Users:
+    type: object
+    required:
+      - nickname
+      - birthday
+    properties:
+      nickname:
+        type: string
+        description: ニックネーム
+      birthday:
+        type: string
+        format: date
+        description: 生年月日
+    xml:
+      name: Users
+  UsersResponse:
+    type: object
+    properties:
+      user_id:
+        type: string
+        description: ユーザーID
+      nickname:
+        type: string
+        description: ニックネーム
+      birthday:
+        type: string
+        format: date
+        description: 生年月日
+      refresh_token:
+        type: string
+        description: リフレッシュトークン
+      session_token:
+        type: string
+        description: セッショントークン
+    xml:
+      name: UsersRegist
+  ApiError:
+    type: object
+    properties:
+      code:
+        type: string
+        description: エラーコード
+      message:
+        type: string
+        description: エラーメッセージ
+      errors:
+        $ref: '#/definitions/ErrorsField'
+        description: エラーフィールド情報
+    xml:
+      name: ApiError
+  ErrorsField:
+    type: array
+    items:
+      properties:
+        message:
+          type: string
+          description: エラーメッセージ
