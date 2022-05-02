@@ -1,0 +1,16 @@
+@charset "utf-8";
+@use "sass:math";
+
+$baseColor: #fff;
+$mainColor: #d3ebcd;
+$accentColor: #f8d85b;
+
+$baseFontColor: #2e2414;
+$strongFontColor: #326e39;
+$warningFontColor: #e74f2e;
+
+$baseSize: 16;
+
+@function remSize($pixels) {
+  @return math.div($pixels, $baseSize) * 1rem;
+}
